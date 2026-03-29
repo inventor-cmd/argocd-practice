@@ -4,9 +4,9 @@ metadata:
   name: my-app
   namespace: my-app
 spec:
-  selector: 
+  selector:
     app: my-app
   ports:
-    - port: 80
-      targetPort: 80
-    type: ClusterIP
+  - port: 80
+    targetPort: 80
+  type: ClusterIP
