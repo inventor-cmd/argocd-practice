@@ -5,7 +5,7 @@ config:
     source:
       repoURL: https://github.com/inventor-cmd/argocd-practice.git 
       targetRevision: main
-      path: helm-app
+      path: app-of-apps/helm-app
 
 applications:
   - name: nginx
