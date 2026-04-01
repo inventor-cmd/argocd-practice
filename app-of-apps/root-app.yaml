@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/inventor-cmd/argocd-practice.git 
     targetRevision: HEAD
-    path: app-of-apps              # points to the folder of Application manifests
+    path: apps              # points to the folder of Application manifests
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd       # apps land in argocd namespace
