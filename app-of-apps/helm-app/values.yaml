@@ -1,0 +1,23 @@
+config:
+  spec:
+    destination:
+      server: https://kubernetes.default.svc
+    source:
+      repoURL: https://github.com/inventor-cmd/argocd-practice.git 
+      targetRevision: HEAD
+      path: helm-app
+
+applications:
+  - name: nginx
+    path: manifests/nginx
+    tool:
+      helm:
+        releaseName: nginx
+  - name: monitoring
+    path: manifests/monitoring
+    tool:
+      helm:
+        releaseName: monitoring
+  #- name: pre-post-sync
+  #- name: sock-shop
+  #- name: sync-waves
