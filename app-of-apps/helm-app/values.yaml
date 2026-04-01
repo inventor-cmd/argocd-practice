@@ -4,7 +4,7 @@ config:
       server: https://kubernetes.default.svc
     source:
       repoURL: https://github.com/inventor-cmd/argocd-practice.git 
-      targetRevision: HEAD
+      targetRevision: main
       path: helm-app
 
 applications:

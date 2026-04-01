@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/inventor-cmd/argocd-practice.git
-    targetRevision: HEAD
+    targetRevision: main
     path: helm-app
   destination:
     server: https://kubernetes.default.svc
