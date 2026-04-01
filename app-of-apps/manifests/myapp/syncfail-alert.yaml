@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: sync-fail-alert
+  namespace: myapp
+  annotations:
+    argocd.argoproj.io/hook: SyncFail
+    argocd.argoproj.io/hook-delete-policy: HookFailed
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: alert
+        image: busybox
+        command:
+        - sh
+        - -c
+        - echo "SYNC FAILED — investigate immediately!"

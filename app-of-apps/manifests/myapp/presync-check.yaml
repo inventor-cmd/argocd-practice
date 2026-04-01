@@ -1,0 +1,25 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: pre-sync-db-check
+  namespace: myapp
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: check
+        image: busybox
+        command:
+        - sh
+        - -c
+        - |
+          echo "Checking DB connectivity..."
+          until nc -z postgres 5432; do
+            echo "Waiting for postgres..."
+            sleep 2
+          done
+          echo "DB is ready!"

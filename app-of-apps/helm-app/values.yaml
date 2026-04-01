@@ -12,6 +12,9 @@ applications:
     path: app-of-apps/manifests/nginx
   - name: monitoring
     path: app-of-apps/manifests/monitoring
+  - name: myapp
+    namespace: myapp
+    path: app-of-apps/manifests/myapp
   #- name: pre-post-sync
   #- name: sock-shop
   #- name: sync-waves

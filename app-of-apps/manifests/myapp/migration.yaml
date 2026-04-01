@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: db-migration
+  namespace: myapp
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: migrate
+        image: busybox
+        command:
+        - sh
+        - -c
+        - |
+          echo "Running DB migrations..."
+          sleep 5
+          echo "Migrations complete!"
