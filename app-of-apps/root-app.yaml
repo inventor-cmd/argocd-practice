@@ -1,19 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: root-app
+  name: origin-app
   namespace: argocd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
-    repoURL: https://github.com/inventor-cmd/argocd-practice.git 
+    repoURL: https://github.com/inventor-cmd/argocd-practice.git
     targetRevision: HEAD
-    path: app-of-apps/apps              # points to the folder of Application manifests
+    path: helm-app
   destination:
     server: https://kubernetes.default.svc
-    namespace: argocd       # apps land in argocd namespace
+    namespace: argocd
   syncPolicy:
     automated:
       prune: true
