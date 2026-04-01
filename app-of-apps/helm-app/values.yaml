@@ -9,12 +9,12 @@ config:
 
 applications:
   - name: nginx
-    path: manifests/nginx
+    path: app-of-apps/manifests/nginx
     tool:
       helm:
         releaseName: nginx
   - name: monitoring
-    path: manifests/monitoring
+    path: app-of-apps/manifests/monitoring
     tool:
       helm:
         releaseName: monitoring
